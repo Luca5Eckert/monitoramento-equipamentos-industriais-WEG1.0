@@ -17,7 +17,9 @@ public class Leitor {
 
     public int lerNumeroInteiro(){
         try{
-            return scanner.nextInt();
+            int numero = scanner.nextInt();
+            scanner.nextLine();
+            return numero;
         } catch (RuntimeException e) {
             lidarErro(e);
             return lerNumeroInteiro();
@@ -26,7 +28,9 @@ public class Leitor {
 
     public double lerNumeroDouble(){
         try{
-            return scanner.nextDouble();
+            double numero = scanner.nextDouble();
+            scanner.nextLine();
+            return numero;
         } catch (RuntimeException e) {
             lidarErro(e);
             return lerNumeroDouble();
@@ -34,7 +38,8 @@ public class Leitor {
     }
 
     private void lidarErro(RuntimeException e) {
-        System.out.println("Erro em input!\n Tente novamente");
+        System.out.println(" Erro em input!\n Tente novamente");
+        scanner.nextLine();
     }
 
 }
