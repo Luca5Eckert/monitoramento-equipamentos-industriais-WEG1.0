@@ -1,9 +1,8 @@
-package com.prova.lucas.modal;
+package com.prova.lucas.model;
 
 import com.prova.lucas.util.DateUtil;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 public class Medicao {
 
