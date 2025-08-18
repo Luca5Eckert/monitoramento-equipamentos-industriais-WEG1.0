@@ -1,5 +1,6 @@
 package com.prova.lucas.view.menu;
 
+import com.prova.lucas.util.BeansUtil;
 import com.prova.lucas.view.Leitor;
 
 public class MenuPrincipal extends Menu<String> {
@@ -22,13 +23,17 @@ public class MenuPrincipal extends Menu<String> {
         System.out.println(" 6- Listar Sensores Críticos");
         System.out.println("\n 0- Sair");
 
+        System.out.println("===========================================");
+
+
         setAcao(getLeitor().lerLinha().trim().toUpperCase());
     }
 
     @Override
     public void executarMenu() {
         Menu<?> menu = switch (getAcao()){
-            case "1" -> new MenuCadastrarSensor(getLeitor());
+            case "1" -> new MenuCadastrarSensor(getLeitor(), BeansUtil.instanceSensorController());
+            case "0" -> null;
             default -> this;
         };
         setProximoMenu(menu);
