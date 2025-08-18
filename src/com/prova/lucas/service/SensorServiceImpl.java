@@ -8,6 +8,9 @@ import com.prova.lucas.infra.persistencia.repository.SensorRepositorio;
 import com.prova.lucas.model.Sensor;
 import com.prova.lucas.model.SensorFactory;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SensorServiceImpl implements SensorService {
 
     private final SensorRepositorio sensorRepositorio;
@@ -23,6 +26,21 @@ public class SensorServiceImpl implements SensorService {
         Sensor sensor = sensorMapper.toEntity(sensorRequest);
         sensorRepositorio.adicionar(sensor);
 
+        return sensorMapper.toResponse(sensor);
+    }
+
+    @Override
+    public List<SensorResponse> pegarSensores() {
+        List<SensorResponse> sensoresResponses = new ArrayList<>();
+
+        for(Sensor sensor : sensorRepositorio.pegarTodos()){
+            sensoresResponses.add(pegarResponse(sensor));
+        }
+        return sensoresResponses;
+    }
+
+    private SensorResponse pegarResponse(Sensor sensor){
+        SensorMapper sensorMapper = SensorFactory.instanceOf(sensor.pegarTipoSensor());
         return sensorMapper.toResponse(sensor);
     }
 }
