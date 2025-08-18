@@ -22,4 +22,9 @@ public class SensorRepositorio {
         }
         return Optional.empty();
     }
+
+    public List<Sensor> pegarTodos(){
+        return sensores;
+    }
+
 }
