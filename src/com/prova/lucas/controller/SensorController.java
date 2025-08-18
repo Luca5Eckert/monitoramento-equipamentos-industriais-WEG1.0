@@ -4,6 +4,8 @@ import com.prova.lucas.controller.port.SensorService;
 import com.prova.lucas.dto.SensorRequest;
 import com.prova.lucas.dto.SensorResponse;
 
+import java.util.List;
+
 public class SensorController {
 
     private final SensorService sensorService;
@@ -14,5 +16,9 @@ public class SensorController {
 
     public SensorResponse adicionarSensor(SensorRequest sensorRequest){
         return sensorService.adicionaSensor(sensorRequest);
+    }
+
+    public List<SensorResponse> pegarSensores(){
+
     }
 }
