@@ -5,7 +5,7 @@ import com.prova.lucas.modal.enumerator.TipoSensor;
 public abstract class Sensor {
 
     private String codigo;
-    private String nome;
+    private String nomeEquipamento;
 
     abstract TipoSensor pegarTipoSensor();
 
@@ -19,11 +19,11 @@ public abstract class Sensor {
         this.codigo = codigo;
     }
 
-    public String getNome() {
-        return nome;
+    public String getNomeEquipamento() {
+        return nomeEquipamento;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNomeEquipamento(String nomeEquipamento) {
+        this.nomeEquipamento = nomeEquipamento;
     }
 }
