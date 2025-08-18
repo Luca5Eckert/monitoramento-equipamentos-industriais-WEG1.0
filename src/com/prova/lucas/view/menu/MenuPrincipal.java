@@ -27,8 +27,10 @@ public class MenuPrincipal extends Menu<String> {
 
     @Override
     public void executarMenu() {
-        Menu menu = switch (getAcao()){
-            case "1" -> new MenuCadastrarSensor()
+        Menu<?> menu = switch (getAcao()){
+            case "1" -> new MenuCadastrarSensor(getLeitor());
+            default -> this;
         };
+        setProximoMenu(menu);
     }
 }
