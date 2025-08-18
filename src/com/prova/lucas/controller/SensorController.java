@@ -21,4 +21,6 @@ public class SensorController {
     public List<SensorResponse> pegarSensores(){
         return sensorService.pegarSensores();
     }
+
+    public
 }

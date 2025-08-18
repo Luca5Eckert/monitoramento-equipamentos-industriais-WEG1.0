@@ -1,13 +1,16 @@
 package com.prova.lucas.view.menu;
 
+import com.prova.lucas.controller.SensorController;
 import com.prova.lucas.dto.medicao.MedicaoRequest;
 import com.prova.lucas.view.Leitor;
 
 public class MenuRegistrarMedicao extends Menu<MedicaoRequest>{
 
+    private final SensorController sensorController;
 
-    public MenuRegistrarMedicao(Leitor leitor) {
+    public MenuRegistrarMedicao(Leitor leitor, SensorController sensorController) {
         super(leitor);
+        this.sensorController = sensorController;
     }
 
     @Override
