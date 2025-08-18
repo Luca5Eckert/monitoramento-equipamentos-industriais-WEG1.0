@@ -6,17 +6,23 @@ import com.prova.lucas.model.SensorVibracao;
 
 public enum TipoSensor {
 
-    TEMPERATURA(new SensorTemperatura().pegarLimiteParaAlerta()),
-    VIBRACAO(new SensorVibracao().pegarLimiteParaAlerta());
+    TEMPERATURA(new SensorTemperatura().pegarLimiteParaAlerta(), ">"),
+    VIBRACAO(new SensorVibracao().pegarLimiteParaAlerta(), "!=");
 
     private double limiteAlerta;
+    private String simbolo;
 
-    TipoSensor(double limiteAlerta){
+    TipoSensor(double limiteAlerta, String simbolo){
         this.limiteAlerta = limiteAlerta;
+        this.simbolo = simbolo;
     }
 
     public double getLimiteAlerta() {
         return limiteAlerta;
+    }
+
+    public String getSimbolo() {
+        return simbolo;
     }
 
     public static void listarSensores() {
