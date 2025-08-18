@@ -4,8 +4,8 @@ import com.prova.lucas.view.Leitor;
 
 public class MenuPrincipal extends Menu<String> {
 
-    public MenuPrincipal(String acao, Menu<?> proximoMenu, Leitor leitor) {
-        super(acao, proximoMenu, leitor);
+    public MenuPrincipal(Leitor leitor) {
+        super(leitor);
     }
 
     @Override
@@ -21,10 +21,14 @@ public class MenuPrincipal extends Menu<String> {
         System.out.println(" 5- Verificar Alertar");
         System.out.println(" 6- Listar Sensores Críticos");
         System.out.println("\n 0- Sair");
+
+        setAcao(getLeitor().lerLinha().trim().toUpperCase());
     }
 
     @Override
     public void executarMenu() {
-
+        Menu menu = switch (getAcao()){
+            case "1" -> new MenuCadastrarSensor()
+        };
     }
 }

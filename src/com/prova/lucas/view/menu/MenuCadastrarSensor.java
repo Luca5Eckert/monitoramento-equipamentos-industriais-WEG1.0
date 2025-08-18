@@ -1,13 +1,12 @@
 package com.prova.lucas.view.menu;
 
-import com.prova.lucas.dto.SensorDto;
 import com.prova.lucas.dto.SensorRequest;
 import com.prova.lucas.view.Leitor;
 
 public class MenuCadastrarSensor extends Menu<SensorRequest>{
 
-    public MenuCadastrarSensor(SensorRequest acao, Menu<?> proximoMenu, Leitor leitor) {
-        super(acao, proximoMenu, leitor);
+    public MenuCadastrarSensor(Leitor leitor) {
+        super(leitor);
     }
 
     @Override
