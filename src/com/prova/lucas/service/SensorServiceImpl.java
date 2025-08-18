@@ -1,8 +1,8 @@
 package com.prova.lucas.service;
 
 import com.prova.lucas.controller.port.SensorService;
-import com.prova.lucas.dto.SensorRequest;
-import com.prova.lucas.dto.SensorResponse;
+import com.prova.lucas.dto.sensor.SensorRequest;
+import com.prova.lucas.dto.sensor.SensorResponse;
 import com.prova.lucas.infra.persistencia.mapper.SensorMapper;
 import com.prova.lucas.infra.persistencia.repository.SensorRepositorio;
 import com.prova.lucas.model.Sensor;

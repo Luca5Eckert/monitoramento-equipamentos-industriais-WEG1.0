@@ -1,7 +1,7 @@
 package com.prova.lucas.view.menu;
 
 import com.prova.lucas.controller.SensorController;
-import com.prova.lucas.dto.SensorResponse;
+import com.prova.lucas.dto.sensor.SensorResponse;
 import com.prova.lucas.view.Leitor;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.prova.lucas.dto;
+package com.prova.lucas.dto.sensor;
 
 import com.prova.lucas.model.enumerator.TipoSensor;
 

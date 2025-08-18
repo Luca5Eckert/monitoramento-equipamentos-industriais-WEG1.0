@@ -1,6 +1,5 @@
 package com.prova.lucas.model;
 
-import com.prova.lucas.dto.SensorRequest;
 import com.prova.lucas.infra.persistencia.mapper.SensorMapper;
 import com.prova.lucas.infra.persistencia.mapper.SensorTemperaturaMapper;
 import com.prova.lucas.infra.persistencia.mapper.SensorVibracaoMapper;

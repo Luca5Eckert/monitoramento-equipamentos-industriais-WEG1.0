@@ -1,8 +1,8 @@
 package com.prova.lucas.controller;
 
 import com.prova.lucas.controller.port.SensorService;
-import com.prova.lucas.dto.SensorRequest;
-import com.prova.lucas.dto.SensorResponse;
+import com.prova.lucas.dto.sensor.SensorRequest;
+import com.prova.lucas.dto.sensor.SensorResponse;
 
 import java.util.List;
 

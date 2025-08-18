@@ -1,9 +1,8 @@
 package com.prova.lucas.infra.persistencia.mapper;
 
-import com.prova.lucas.dto.SensorRequest;
-import com.prova.lucas.dto.SensorResponse;
+import com.prova.lucas.dto.sensor.SensorRequest;
+import com.prova.lucas.dto.sensor.SensorResponse;
 import com.prova.lucas.model.Sensor;
-import com.prova.lucas.model.SensorTemperatura;
 import com.prova.lucas.model.SensorVibracao;
 import com.prova.lucas.util.BeansUtil;
 
