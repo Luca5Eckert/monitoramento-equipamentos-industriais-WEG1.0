@@ -26,4 +26,11 @@ public abstract class Sensor {
     public void setNomeEquipamento(String nomeEquipamento) {
         this.nomeEquipamento = nomeEquipamento;
     }
+
+    @Override
+    public String toString(){
+        return " Codigo: " + codigo
+                + " Nome do equipamento: " + nomeEquipamento
+                + " Tipo Sensor: " + pegarTipoSensor();
+    }
 }

@@ -1,10 +1,9 @@
 package com.prova.lucas.modal;
 
-import com.prova.lucas.DateUtil;
+import com.prova.lucas.util.DateUtil;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
 
 public class Medicao {
 
@@ -34,6 +33,12 @@ public class Medicao {
 
     public void setDataHora(LocalDateTime dataHora) {
         this.dataHora = dataHora;
+    }
+
+    @Override
+    public String toString(){
+        return " Valor: " + valor
+                + " | Data: " + pegarHorarioFormatado();
     }
 
 }

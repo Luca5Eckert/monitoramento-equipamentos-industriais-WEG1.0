@@ -1,4 +1,4 @@
-package com.prova.lucas;
+package com.prova.lucas.util;
 
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
