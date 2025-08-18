@@ -24,7 +24,9 @@ public class SensorController {
         return sensorService.pegarSensores();
     }
 
-    public MedicaoResponse registrarMedicao(MedicaoRequest medicaoRequest){}
+    public MedicaoResponse registrarMedicao(MedicaoRequest medicaoRequest){
+        return sensorService.registrarMedicao(medicaoRequest);
+    }
 
 
 }
