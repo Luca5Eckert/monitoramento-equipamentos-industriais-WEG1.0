@@ -51,7 +51,7 @@ public class SensorServiceImpl implements SensorService {
 
         sensor.adicionarMedicao(medicao);
 
-        return new MedicaoResponse(medicao.getValor(), medicao.pegarHorarioFormatado(), sensor.pegarTipoSensor());
+        return new MedicaoResponse(medicao.getValor(), medicao.pegarHorarioFormatado(), sensor.pegarTipoSensor(), sensor.verificarAlerta(medicao));
     }
 
     private SensorResponse pegarResponse(Sensor sensor){

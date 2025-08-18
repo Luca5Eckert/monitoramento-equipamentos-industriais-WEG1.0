@@ -31,7 +31,7 @@ public abstract class Sensor {
 
     public abstract TipoSensor pegarTipoSensor();
 
-    boolean verificarAlerta(Medicao medicao){
+    public boolean verificarAlerta(Medicao medicao){
         return medicao.getValor() < pegarLimiteParaAlerta();
     }
 
