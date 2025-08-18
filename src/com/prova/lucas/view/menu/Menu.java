@@ -7,9 +7,7 @@ public abstract class Menu<TipoDado> {
     private Menu<?> proximoMenu;
     private Leitor leitor;
 
-    public Menu(TipoDado acao, Menu<?> proximoMenu, Leitor leitor) {
-        this.acao = acao;
-        this.proximoMenu = proximoMenu;
+    public Menu(Leitor leitor) {
         this.leitor = leitor;
     }
 
