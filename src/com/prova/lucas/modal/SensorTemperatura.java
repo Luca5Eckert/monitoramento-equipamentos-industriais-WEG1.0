@@ -13,6 +13,6 @@ public class SensorTemperatura extends Sensor{
 
     @Override
     boolean verificarAlerta(Medicao medicao) {
-        return medicao.getValor() > 80;
+        return medicao.getValor() < 80;
     }
 }

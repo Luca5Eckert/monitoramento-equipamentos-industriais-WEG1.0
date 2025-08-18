@@ -12,7 +12,7 @@ public class SensorVibracao extends Sensor{
 
     @Override
     public boolean verificarAlerta(Medicao medicao) {
-        return medicao.getValor() != 60;
+        return medicao.getValor() == 60;
     }
 
 }
