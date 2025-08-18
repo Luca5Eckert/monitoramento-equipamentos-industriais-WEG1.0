@@ -1,7 +1,7 @@
-package com.prova.lucas.modal;
+package com.prova.lucas.model;
 
 import com.prova.lucas.exception.SensorException;
-import com.prova.lucas.modal.enumerator.TipoSensor;
+import com.prova.lucas.model.enumerator.TipoSensor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +11,9 @@ public abstract class Sensor {
     private String codigo;
     private String nomeEquipamento;
     private List<Medicao> medicoes = new ArrayList<>();
+
+    public Sensor() {
+    }
 
     public Sensor(String codigo, String nomeEquipamento, List<Medicao> medicoes) {
         this.codigo = codigo;
@@ -25,9 +28,13 @@ public abstract class Sensor {
         medicoes.add(medicao);
     }
 
-    abstract TipoSensor pegarTipoSensor();
+    public abstract double pegarLimiteParaAlerta();
 
-    abstract boolean verificarAlerta(Medicao medicao);
+    public abstract TipoSensor pegarTipoSensor();
+
+    boolean verificarAlerta(Medicao medicao){
+        return medicao.getValor() < pegarLimiteParaAlerta();
+    }
 
     public String getCodigo() {
         return codigo;

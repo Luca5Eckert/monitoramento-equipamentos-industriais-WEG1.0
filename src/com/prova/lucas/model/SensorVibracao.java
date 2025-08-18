@@ -1,6 +1,6 @@
-package com.prova.lucas.modal;
+package com.prova.lucas.model;
 
-import com.prova.lucas.modal.enumerator.TipoSensor;
+import com.prova.lucas.model.enumerator.TipoSensor;
 
 import java.util.List;
 
@@ -10,6 +10,15 @@ public class SensorVibracao extends Sensor{
         super(codigo, nomeEquipamento, medicoes);
     }
 
+    public SensorVibracao() {
+        super();
+    }
+
+    @Override
+    public double pegarLimiteParaAlerta() {
+        return 60;
+    }
+
     @Override
     public TipoSensor pegarTipoSensor() {
         return TipoSensor.VIBRACAO;
@@ -17,7 +26,7 @@ public class SensorVibracao extends Sensor{
 
     @Override
     public boolean verificarAlerta(Medicao medicao) {
-        return medicao.getValor() == 60;
+        return medicao.getValor() == pegarLimiteParaAlerta();
     }
 
 }

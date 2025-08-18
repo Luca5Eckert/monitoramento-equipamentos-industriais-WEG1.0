@@ -1,7 +1,6 @@
-package com.prova.lucas.modal;
+package com.prova.lucas.model;
 
-import com.prova.lucas.exception.SensorLimiteMedicaoException;
-import com.prova.lucas.modal.enumerator.TipoSensor;
+import com.prova.lucas.model.enumerator.TipoSensor;
 
 import java.util.List;
 
@@ -12,13 +11,21 @@ public class SensorTemperatura extends Sensor{
         super(codigo, nomeEquipamento, medicoes);
     }
 
+    public SensorTemperatura() {
+    }
+
     @Override
-    TipoSensor pegarTipoSensor() {
+    public double pegarLimiteParaAlerta(){
+        return 80;
+    }
+
+    @Override
+    public TipoSensor pegarTipoSensor() {
         return TipoSensor.TEMPERATURA;
     }
 
     @Override
     boolean verificarAlerta(Medicao medicao) {
-        return medicao.getValor() < 80;
+        return medicao.getValor() < pegarLimiteParaAlerta();
     }
 }
