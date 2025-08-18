@@ -15,10 +15,9 @@ public abstract class Sensor {
     public Sensor() {
     }
 
-    public Sensor(String codigo, String nomeEquipamento, List<Medicao> medicoes) {
+    public Sensor(String codigo, String nomeEquipamento) {
         this.codigo = codigo;
         this.nomeEquipamento = nomeEquipamento;
-        this.medicoes = medicoes;
     }
 
     public void adicionarMedicao(Medicao medicao){

@@ -12,7 +12,7 @@ public class SensorVibracaoMapper implements SensorMapper{
 
     @Override
     public Sensor toEntity(SensorRequest sensorRequest) {
-        return new SensorVibracao(BeansUtil.instanceGeradorCodigo().gerarCodigo("SV"), sensorRequest.nomeEquipamento(), List.of());
+        return new SensorVibracao(BeansUtil.instanceGeradorCodigo().gerarCodigo("SV"), sensorRequest.nomeEquipamento());
     }
 
     @Override

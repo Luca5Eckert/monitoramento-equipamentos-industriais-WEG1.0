@@ -6,8 +6,8 @@ import java.util.List;
 
 public class SensorVibracao extends Sensor{
 
-    public SensorVibracao(String codigo, String nomeEquipamento, List<Medicao> medicoes) {
-        super(codigo, nomeEquipamento, medicoes);
+    public SensorVibracao(String codigo, String nomeEquipamento) {
+        super(codigo, nomeEquipamento);
     }
 
     public SensorVibracao() {

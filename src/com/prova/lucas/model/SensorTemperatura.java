@@ -7,8 +7,8 @@ import java.util.List;
 public class SensorTemperatura extends Sensor{
 
 
-    public SensorTemperatura(String codigo, String nomeEquipamento, List<Medicao> medicoes) {
-        super(codigo, nomeEquipamento, medicoes);
+    public SensorTemperatura(String codigo, String nomeEquipamento) {
+        super(codigo, nomeEquipamento);
     }
 
     public SensorTemperatura() {

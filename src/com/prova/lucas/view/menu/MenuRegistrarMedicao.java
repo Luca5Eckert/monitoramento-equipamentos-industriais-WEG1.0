@@ -2,6 +2,8 @@ package com.prova.lucas.view.menu;
 
 import com.prova.lucas.controller.SensorController;
 import com.prova.lucas.dto.medicao.MedicaoRequest;
+import com.prova.lucas.dto.medicao.MedicaoResponse;
+import com.prova.lucas.dto.sensor.SensorResponse;
 import com.prova.lucas.view.Leitor;
 
 public class MenuRegistrarMedicao extends Menu<MedicaoRequest>{
@@ -18,14 +20,21 @@ public class MenuRegistrarMedicao extends Menu<MedicaoRequest>{
         System.out.println("===========================================");
         System.out.println("            Registrar Medições ");
         System.out.println("===========================================");
+        System.out.println(" S - Sair");
 
         System.out.println(" Digite o código do sensor: ");
         String codigoSensor = getLeitor().lerLinha();
+
+        if(codigoSensor.trim().equalsIgnoreCase("S")){
+            setProximoMenu(new MenuPrincipal(getLeitor()));
+            return;
+        }
 
         System.out.println(" Digite o valor da medição: ");
         double valorMedicao = getLeitor().lerNumeroDouble();
 
         System.out.println("\n===========================================");
+
 
         setAcao(new MedicaoRequest(codigoSensor, valorMedicao));
 
@@ -33,6 +42,20 @@ public class MenuRegistrarMedicao extends Menu<MedicaoRequest>{
 
     @Override
     public void executarMenu() {
+        if(getProximoMenu() != null){
+            return;
+        }
 
+        MedicaoResponse medicaoResponse = sensorController.registrarMedicao(getAcao());
+        System.out.println("\n Medição registrada com sucesso!");
+
+        double valor = medicaoResponse.valor();
+        double valorLimite = medicaoResponse.tipoSensor().getLimiteAlerta();
+
+        if(valor > valorLimite || valor != valorLimite){
+            System.out.println("\n AlERTA: Medição fora do limite técnico! ( " + valor + " " + medicaoResponse.tipoSensor().getSimbolo() + " " + valorLimite + " )" );
+        }
+
+        setProximoMenu(new MenuPrincipal(getLeitor()));
     }
 }

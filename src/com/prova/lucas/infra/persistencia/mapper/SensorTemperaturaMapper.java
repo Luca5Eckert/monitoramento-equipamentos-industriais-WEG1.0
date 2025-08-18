@@ -11,7 +11,7 @@ import java.util.List;
 public class SensorTemperaturaMapper implements SensorMapper{
     @Override
     public Sensor toEntity(SensorRequest sensorRequest) {
-        return new SensorTemperatura(BeansUtil.instanceGeradorCodigo().gerarCodigo("ST"), sensorRequest.nomeEquipamento(), List.of());
+        return new SensorTemperatura(BeansUtil.instanceGeradorCodigo().gerarCodigo("ST"), sensorRequest.nomeEquipamento());
     }
 
     @Override
