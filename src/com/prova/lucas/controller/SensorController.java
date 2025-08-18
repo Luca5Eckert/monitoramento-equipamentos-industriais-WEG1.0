@@ -1,6 +1,8 @@
 package com.prova.lucas.controller;
 
 import com.prova.lucas.controller.port.SensorService;
+import com.prova.lucas.dto.medicao.MedicaoRequest;
+import com.prova.lucas.dto.medicao.MedicaoResponse;
 import com.prova.lucas.dto.sensor.SensorRequest;
 import com.prova.lucas.dto.sensor.SensorResponse;
 
@@ -22,5 +24,7 @@ public class SensorController {
         return sensorService.pegarSensores();
     }
 
-    public
+    public MedicaoResponse registrarMedicao(MedicaoRequest medicaoRequest){}
+
+
 }
