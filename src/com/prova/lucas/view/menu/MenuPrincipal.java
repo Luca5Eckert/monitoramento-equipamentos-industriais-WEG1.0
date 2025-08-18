@@ -34,6 +34,7 @@ public class MenuPrincipal extends Menu<String> {
         Menu<?> menu = switch (getAcao()){
             case "1" -> new MenuCadastrarSensor(getLeitor(), BeansUtil.instanceSensorController());
             case "2" -> new MenuListarSensores(getLeitor(), BeansUtil.instanceSensorController());
+            case "3" -> new MenuRegistrarMedicao(getLeitor(), BeansUtil.instanceSensorController());
             case "0" -> null;
             default -> this;
         };
