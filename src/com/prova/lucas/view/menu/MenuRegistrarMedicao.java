@@ -49,7 +49,7 @@ public class MenuRegistrarMedicao extends Menu<MedicaoRequest>{
         MedicaoResponse medicaoResponse = sensorController.registrarMedicao(getAcao());
         System.out.println("\n Medição registrada com sucesso!");
 
-        if(medicaoResponse.alerta()){
+        if(!medicaoResponse.alerta()){
             System.out.println("\n AlERTA: Medição fora do limite técnico! ( " + getAcao().valor() + " " + medicaoResponse.tipoSensor().getSimbolo() + " " + medicaoResponse.tipoSensor().getLimiteAlerta() + " )" );
         }
 
