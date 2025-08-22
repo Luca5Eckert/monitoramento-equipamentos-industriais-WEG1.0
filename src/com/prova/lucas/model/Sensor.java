@@ -69,4 +69,8 @@ public abstract class Sensor {
                 + " Nome do equipamento: " + nomeEquipamento
                 + " Tipo Sensor: " + pegarTipoSensor();
     }
+
+    public boolean estaCritico() {
+        return quantidadeAlerta >= 3;
+    }
 }
