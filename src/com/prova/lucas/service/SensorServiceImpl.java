@@ -3,22 +3,21 @@ package com.prova.lucas.service;
 import com.prova.lucas.controller.port.SensorService;
 import com.prova.lucas.dto.medicao.MedicaoRequest;
 import com.prova.lucas.dto.medicao.MedicaoResponse;
+import com.prova.lucas.dto.sensor.SensorAlertasResponse;
 import com.prova.lucas.dto.sensor.SensorRequest;
 import com.prova.lucas.dto.sensor.SensorResponse;
 import com.prova.lucas.exception.SensorException;
 import com.prova.lucas.infra.persistencia.mapper.MedicaoMapper;
+import com.prova.lucas.infra.persistencia.mapper.SensorAlertasMapper;
 import com.prova.lucas.infra.persistencia.mapper.SensorMapper;
 import com.prova.lucas.infra.persistencia.repository.SensorRepositorio;
 import com.prova.lucas.model.Medicao;
 import com.prova.lucas.model.Sensor;
 import com.prova.lucas.model.SensorFactory;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class SensorServiceImpl implements SensorService {
 
@@ -66,6 +65,12 @@ public class SensorServiceImpl implements SensorService {
         Sensor sensor = sensorRepositorio.pegar(codigo).orElseThrow(() -> new SensorException("Sensor não encontrado com o seguinte código: " + codigo));
 
         return sensor.getMedicoes().stream().map(medicao -> mapper.toResponse(medicao, sensor.pegarTipoSensor(), !sensor.verificarAlerta(medicao))).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<SensorAlertasResponse> pegarAlertasSensores() {
+        SensorAlertasMapper mapper = new SensorAlertasMapper();
+        return sensorRepositorio.pegarTodos().stream().map(mapper::toResponse).collect(Collectors.toList());
     }
 
     private SensorResponse pegarResponse(Sensor sensor){
