@@ -39,6 +39,7 @@ public class MenuPrincipal extends Menu<String> {
             case "2" -> new MenuListarSensores(getLeitor(), sensorController);
             case "3" -> new MenuRegistrarMedicao(getLeitor(), sensorController);
             case "4" -> new MenuHistoricoMedicoes(getLeitor(), sensorController);
+            case "5" -> new MenuVerificarAlertas(getLeitor(), sensorController);
             case "0" -> null;
             default -> this;
         });
