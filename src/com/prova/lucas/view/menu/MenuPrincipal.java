@@ -1,5 +1,6 @@
 package com.prova.lucas.view.menu;
 
+import com.prova.lucas.controller.SensorController;
 import com.prova.lucas.util.BeansUtil;
 import com.prova.lucas.view.Leitor;
 
@@ -31,13 +32,15 @@ public class MenuPrincipal extends Menu<String> {
 
     @Override
     public void executarMenu() {
-        Menu<?> menu = switch (getAcao()){
-            case "1" -> new MenuCadastrarSensor(getLeitor(), BeansUtil.instanceSensorController());
-            case "2" -> new MenuListarSensores(getLeitor(), BeansUtil.instanceSensorController());
-            case "3" -> new MenuRegistrarMedicao(getLeitor(), BeansUtil.instanceSensorController());
+        SensorController sensorController = BeansUtil.instanceSensorController();
+
+        setProximoMenu(switch (getAcao()){
+            case "1" -> new MenuCadastrarSensor(getLeitor(), sensorController);
+            case "2" -> new MenuListarSensores(getLeitor(), sensorController);
+            case "3" -> new MenuRegistrarMedicao(getLeitor(), sensorController);
+            case "4" -> new MenuHistoricoMedicoes(getLeitor(), sensorController);
             case "0" -> null;
             default -> this;
-        };
-        setProximoMenu(menu);
+        });
     }
 }
