@@ -6,6 +6,7 @@ import com.prova.lucas.dto.medicao.MedicaoResponse;
 import com.prova.lucas.dto.sensor.SensorRequest;
 import com.prova.lucas.dto.sensor.SensorResponse;
 import com.prova.lucas.exception.SensorException;
+import com.prova.lucas.infra.persistencia.mapper.MedicaoMapper;
 import com.prova.lucas.infra.persistencia.mapper.SensorMapper;
 import com.prova.lucas.infra.persistencia.repository.SensorRepositorio;
 import com.prova.lucas.model.Medicao;
@@ -14,7 +15,10 @@ import com.prova.lucas.model.SensorFactory;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class SensorServiceImpl implements SensorService {
 
@@ -52,6 +56,14 @@ public class SensorServiceImpl implements SensorService {
         sensor.adicionarMedicao(medicao);
 
         return new MedicaoResponse(medicao.getValor(), medicao.pegarHorarioFormatado(), sensor.pegarTipoSensor(), sensor.verificarAlerta(medicao));
+    }
+
+    @Override
+    public List<MedicaoResponse> pegarHistoricoMedicoes(String codigo) {
+        MedicaoMapper mapper = new MedicaoMapper();
+        Sensor sensor = sensorRepositorio.pegar(codigo).orElseThrow(() -> new SensorException("Sensor não encontrado com o seguinte código: " + codigo));
+
+        return sensor.getMedicoes().stream().map(medicao -> mapper.toResponse(medicao, sensor.pegarTipoSensor(), sensor.verificarAlerta(medicao))).collect(Collectors.toList());
     }
 
     private SensorResponse pegarResponse(Sensor sensor){

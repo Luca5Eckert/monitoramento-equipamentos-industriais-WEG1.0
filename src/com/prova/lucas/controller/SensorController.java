@@ -28,5 +28,10 @@ public class SensorController {
         return sensorService.registrarMedicao(medicaoRequest);
     }
 
+    public List<MedicaoResponse> pegarHistoricoMedicoes(String codigo){
+        return sensorService.pegarHistoricoMedicoes(codigo);
+    }
+
+
 
 }

@@ -14,4 +14,7 @@ public interface SensorService {
     List<SensorResponse> pegarSensores();
 
     MedicaoResponse registrarMedicao(MedicaoRequest medicaoRequest);
+
+    List<MedicaoResponse> pegarHistoricoMedicoes(String codigo);
+
 }

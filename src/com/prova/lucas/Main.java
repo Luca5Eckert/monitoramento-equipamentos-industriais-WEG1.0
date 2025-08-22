@@ -11,6 +11,7 @@ public class Main {
 
         MenuManager menuManager = new MenuManager(new MenuProvider(new MenuPrincipal(new Leitor())));
         menuManager.executarFluxoMenu();
+
     }
 
 }
