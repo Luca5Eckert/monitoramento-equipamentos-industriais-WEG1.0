@@ -33,7 +33,7 @@ public abstract class Menu<TipoDado> {
 
     public void setProximoMenu(Menu<?> proximoMenu) {
         if(proximoMenu == null){
-            System.out.println("SAINDO.....");
+            System.out.println("Encerrando sistema... Obrigado por usar o Monitoramento WEG!");
         }
         this.proximoMenu = proximoMenu;
     }
