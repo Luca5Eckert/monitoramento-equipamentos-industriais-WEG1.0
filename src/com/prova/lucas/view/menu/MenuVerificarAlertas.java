@@ -19,6 +19,7 @@ public class MenuVerificarAlertas extends Menu<String> {
     @Override
     public void chamarMenu() {
         List<SensorAlertasResponse> sensorAlertasResponseList = sensorController.pegarAlertasSensores();
+        String mensagem = sensorAlertasResponseList.isEmpty() ? " Nenhuma sensor adiciona " : "";
         System.out.println("===========================================");
         System.out.println("                  ALERTAS                  ");
         System.out.println("===========================================");
@@ -27,6 +28,8 @@ public class MenuVerificarAlertas extends Menu<String> {
         System.out.println(" Verificando Alertas: \n");
 
         sensorAlertasResponseList.forEach(sensorAlertasResponse -> System.out.println(sensorAlertasResponse.exibirAlertaSensor()));
+
+        System.out.println(mensagem);
 
         System.out.println("===========================================");
 
