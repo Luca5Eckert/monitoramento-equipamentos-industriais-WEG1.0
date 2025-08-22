@@ -50,12 +50,14 @@ public class SensorServiceImpl implements SensorService {
 
     @Override
     public MedicaoResponse registrarMedicao(MedicaoRequest medicaoRequest) {
-        Medicao medicao = new Medicao(medicaoRequest.valor(), LocalDateTime.now());
+        MedicaoMapper mapper = new MedicaoMapper();
+        Medicao medicao = mapper.toEntity(medicaoRequest);
+
         Sensor sensor = sensorRepositorio.pegar(medicaoRequest.codigoAssociado()).orElseThrow(() -> new SensorException("Código não correponde a nenhum sensor"));
 
         sensor.adicionarMedicao(medicao);
 
-        return new MedicaoResponse(medicao.getValor(), medicao.pegarHorarioFormatado(), sensor.pegarTipoSensor(), sensor.verificarAlerta(medicao));
+        return mapper.toResponse(medicao, sensor.pegarTipoSensor(), !sensor.verificarAlerta(medicao));
     }
 
     @Override
@@ -63,7 +65,7 @@ public class SensorServiceImpl implements SensorService {
         MedicaoMapper mapper = new MedicaoMapper();
         Sensor sensor = sensorRepositorio.pegar(codigo).orElseThrow(() -> new SensorException("Sensor não encontrado com o seguinte código: " + codigo));
 
-        return sensor.getMedicoes().stream().map(medicao -> mapper.toResponse(medicao, sensor.pegarTipoSensor(), sensor.verificarAlerta(medicao))).collect(Collectors.toList());
+        return sensor.getMedicoes().stream().map(medicao -> mapper.toResponse(medicao, sensor.pegarTipoSensor(), !sensor.verificarAlerta(medicao))).collect(Collectors.toList());
     }
 
     private SensorResponse pegarResponse(Sensor sensor){
