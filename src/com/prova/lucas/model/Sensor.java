@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Sensor {
+    private int quantidadeAlerta;
 
     private String codigo;
     private String nomeEquipamento;
@@ -24,7 +25,14 @@ public abstract class Sensor {
         if(medicao == null) {
             throw new SensorException("Não é possível adicionar medição vazia");
         }
+        if(!verificarAlerta(medicao)){
+            quantidadeAlerta++;
+        }
         medicoes.add(medicao);
+    }
+
+    public int pegarQuantidadeAlertas() {
+        return quantidadeAlerta;
     }
 
     public abstract double pegarLimiteParaAlerta();
