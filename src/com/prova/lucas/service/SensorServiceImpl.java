@@ -73,6 +73,12 @@ public class SensorServiceImpl implements SensorService {
         return sensorRepositorio.pegarTodos().stream().map(mapper::toResponse).collect(Collectors.toList());
     }
 
+    @Override
+    public List<SensorAlertasResponse> pegarAlertasCriticosSensores() {
+        SensorAlertasMapper mapper = new SensorAlertasMapper();
+        return sensorRepositorio.pegarTodos().stream().filter(Sensor::estaCritico).map(mapper::toResponse).toList();
+    }
+
     private SensorResponse pegarResponse(Sensor sensor){
         SensorMapper sensorMapper = SensorFactory.instanceOf(sensor.pegarTipoSensor());
         return sensorMapper.toResponse(sensor);

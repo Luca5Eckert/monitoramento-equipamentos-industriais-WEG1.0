@@ -19,4 +19,6 @@ public interface SensorService {
     List<MedicaoResponse> pegarHistoricoMedicoes(String codigo);
 
     List<SensorAlertasResponse> pegarAlertasSensores();
+
+    List<SensorAlertasResponse> pegarAlertasCriticosSensores();
 }

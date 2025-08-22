@@ -37,4 +37,8 @@ public class SensorController {
     public List<SensorAlertasResponse> pegarAlertasSensores() {
         return sensorService.pegarAlertasSensores();
     }
+
+    public List<SensorAlertasResponse> pegarAlertasCriticosSensores() {
+        return sensorService.pegarAlertasCriticosSensores();
+    }
 }
